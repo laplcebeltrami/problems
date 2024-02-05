@@ -1,0 +1,95 @@
+% This is a simple LaTex sample document that gives a submission format
+%   for IEEE PAMI-TC conference submissions.  Use at your own risk.
+\documentclass[10pt]{article} %,twocolumn
+\usepackage{times,amsmath,amsfonts}
+
+% Use following instead for LaTex 2.09 (may need some other mods as well).
+%\documentstyle[times,twocolumn]{article}
+\usepackage[dvips]{graphicx,graphics}
+% Set dimensions of columns, gap between columns, and paragraph indent
+%\setlength{\textheight}{9.5in} \setlength{\textwidth}{7.5in}
+%\setlength{\columnsep}{0.3125in} \setlength{\topmargin}{0in}
+%\setlength{\headheight}{0.5in} \setlength{\headsep}{-1in}
+%\setlength{\parindent}{1pc}
+%\setlength{\oddsidemargin}{-.5in}  % Centers text.
+%\setlength{\evensidemargin}{-.5in}
+
+% Add the period after section numbers.  Adjust spacing.
+\newcommand{\Section}[1]{\vspace{-8pt}\section{\hskip -1em.~~#1}\vspace{-3pt}}
+\newcommand{\SubSection}[1]{\vspace{-3pt}\subsection{\hskip -1em.~~#1}
+        \vspace{-3pt}}
+\newcommand{\bqn}{\begin{eqnarray}}
+\newcommand{\eqn}{\end{eqnarray}}
+\newcommand{\bq}{\begin*{eqnarray}}
+\newcommand{\eq}{\end*{eqnarray}}
+
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{colorlinks,%
+citecolor=blue,%
+filecolor=blue,%
+linkcolor=red,%
+urlcolor=blue,%
+pdftex}
+
+\newcommand{\blue}[1]{{\color{blue} #1}}
+\newcommand{\green}[1]{{\color{green} #1}}
+\newcommand{\red}[1]{{\color{red} #1}}
+
+\begin{document}
+
+% Make title bold and 14 pt font (Latex default is non-bold, 16pt)
+\title{Problem: Graph Traversals}
+% For single author (just remove % characters)
+\author{Moo K. Chung\\
+%Department of Biostatistics and Medical Informatics\\
+%Waisman Laboratory for Brain Imaging and Behavior\\
+University of Wisconsin-Madison\\
+mkchung@wisc.edu}
+% For two authors (default example)
+\maketitle \thispagestyle{empty}
+ 
+ The report should be generated in LaTex. Do not use Overleaf and must be able to compile LaTex from your computer. 
+ The codes must be written in MATLAB, utilizing a main script \texttt{main.m} that calls the tasks outlined below and produces the corresponding results. Each line of code should include adequate comments for clarity. Sample codes are given (for different project) are given in \url{https://github.com/laplcebeltrami/PH-STAT}.\\
+
+
+
+
+A graph is denoted as \( G = (V, w) \), where \( V = \{1, \ldots, p\} \) represents a set of vertices consisting of nodes from 1 to \( p \), and \( w = (w_{ij}) \) is the \( p \times p \) edge weight matrix. The edge between nodes $i$ and $j$ is denoted as $(i,j)$. The edge weight \( w_{ij} \) is between nodes \( i \) and \( j \), and $w_{ij} \in [0,1]$. We will assume that the nodes are uniformly distributed along the unit circle. 
+
+
+
+\begin{enumerate}
+
+
+\item Create a MATLAB function \texttt{graph\_circle.m} that takes the edge weight matrix \( w \) as input and displays the graph. Nodes should be depicted as black dots, while the edges should be color-coded based on their respective weights.
+
+\item Implement a function \texttt{graph\_traverse.m} to traverse all nodes with the minimum cost. 
+If $E$ is the set of all the edges that the path traversed, the total cost is given by $\sum_{(i,j) \in E} w_{ij}$.
+The traversed path should be represented as a matrix. For example,
+\[
+\begin{array}{ccc}
+1 & 5 & w_{15} \\
+5 & 7 & w_{57} \\
+7 & 8 & w_{78} \\
+\end{array}
+\]
+represents a traversal from nodes \( 1 \) to \( 5 \) to \( 7 \) to \( 8 \).
+
+\item Mathematically prove the correctness of your algorithm. 
+
+\item Write a function \texttt{graph\_traverse\_display.m} that visualizes the traversed path using arrows, overlaid on the output from \texttt{graph\_circle.m}.
+\end{enumerate}
+
+Solve the problem with two randomly generated graphs with 10 and 100 nodes respectively.
+
+
+
+%\bibliographystyle{biometrics} 
+\bibliographystyle{plain}
+\bibliography{reference.2023.04.13}
+
+\end{document}
+
+%[mean(bsmean)-1.645*std(bsmean) mean(bsmean)+1.645*std(bsmean)]
